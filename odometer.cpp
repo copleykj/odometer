@@ -11,10 +11,9 @@ class Odometer{
     void setFuelEff(int fuelEff);         //sets fuel efficiency
     void setAddMiles(int milesTraveled);  //adds miles to the odometer
     void print();                         //Print
-    double getGallons();                  // returns gallons used
-    double gallonsUsed;
 
     private:
+    double getGallons();                  // returns gallons used
     double trackFuelEff;                   //Track mpg
     int trackDistance;                     //Track miles driven
 };
@@ -35,13 +34,11 @@ void Odometer::setAddMiles(int milesTraveled){
 }
 
 double Odometer::getGallons(){
-    gallonsUsed = trackDistance / trackFuelEff;
-
- return gallonsUsed;
+    return trackDistance / trackFuelEff;
 }
 
 void Odometer::print(){
-    cout << "Fuel used: " << gallonsUsed << " gallons" << endl;
+    cout << "Fuel used: " << this->getGallons() << " gallons" << endl;
     cout << "Distance Traveled: " << trackDistance << " miles" <<endl;
     return;
 }
@@ -60,9 +57,6 @@ int main()
 
     trip1.setAddMiles(100); //Tracks how many miles have been travelled
     trip2.setAddMiles(142); //Tracks how many miles have been travelled for 2nd object
-
-    trip1.getGallons(); //returns the number of gallons used since odometer was reset
-    trip2.getGallons();
 
 
     trip1.print();
